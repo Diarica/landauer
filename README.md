@@ -1,7 +1,7 @@
 # Landauer
 
 > 每擦除 1bit 信息都耗费  
-> ![E = kT \ln(2)](https://latex.codecogs.com/svg.image?E=kT\ln(2))  
+> $$E = kT \ln(2)$$  
 > 的能量。而 firmware 是你最接近这个物理过程的一次。  
 > — Landauer's Principle
 

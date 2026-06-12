@@ -1,7 +1,7 @@
 # Landauer
 
 > Erasing a single bit of information costs  
-> ![E = kT \ln(2)](https://latex.codecogs.com/svg.image?E=kT\ln(2))  
+> $$E = kT \ln(2)$$  
 > of energy. And firmware is the closest you'll ever get to that physical process.  
 > — Landauer's Principle
 
