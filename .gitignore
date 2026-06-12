@@ -1,0 +1,32 @@
+# Build outputs
+driver/Release/
+driver/Debug/
+cli/Release/
+cli/Debug/
+*.obj
+*.sys
+*.exe
+*.dll
+
+# VS files
+.vs/
+*.user
+*.vcxproj.filters
+*.db
+*.opendb
+
+# WDK intermediates
+driver/*.pdb
+driver/*.rsp
+driver/cflags.rsp
+
+# Certificates
+*.pfx
+*.cer
+
+# OS junk
+Thumbs.db
+Desktop.ini
+
+.reasonix
+.codegraph

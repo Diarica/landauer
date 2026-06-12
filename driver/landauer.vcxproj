@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}</ProjectGuid>
+    <TemplateGuid>{1dd5cbf7-cce4-4f73-bcde-ff06b5b0b6f5}</TemplateGuid>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MinimumVisualStudioVersion>17.0</MinimumVisualStudioVersion>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <Platform Condition="'$(Platform)' == ''">x64</Platform>
+    <RootNamespace>landauer</RootNamespace>
+    <DriverTargetPlatform>Desktop</DriverTargetPlatform>
+    <DriverType>KMDF</DriverType>
+    <KmdfVersion>1.15</KmdfVersion>
+  </PropertyGroup>
+
+  <Import Project="$(WDKContentRoot)\WindowsDriver.Default.props" />
+  <Import Project="$(WDKContentRoot)\WindowsDriver.KernelMode.props" />
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DebugOptimization>true</DebugOptimization>
+    <TargetName>landauer</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>landauer</TargetName>
+  </PropertyGroup>
+
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(MSBuildProjectDirectory)\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningsLevel>Level4</WarningsLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+    </ClCompile>
+  </ItemDefinitionGroup>
+
+  <ItemGroup>
+    <ClCompile Include="driver.c" />
+    <ClCompile Include="dispatch.c" />
+    <ClCompile Include="pci_provider.c" />
+    <ClCompile Include="bar_table.c" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ClInclude Include="..\protocol.h" />
+    <ClInclude Include="provider.h" />
+    <ClInclude Include="bar_table.h" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Inf Include="landauer.inf" />
+  </ItemGroup>
+
+  <Import Project="$(WDKContentRoot)\WindowsDriver.Common.targets" />
+</Project>

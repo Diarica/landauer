@@ -1,0 +1,45 @@
+;
+; landauer.inf — 安装信息文件
+;
+; 软件驱动 (非 PnP), 通过 sc create 安装。
+; 此 INF 主要用于签名和分发。
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %Manufacturer%
+CatalogFile = landauer.cat
+DriverVer   = 01/01/2025,1.0.0.0
+PnpLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir = 12                          ; %windir%\system32\drivers
+
+[DefaultInstall]
+CopyFiles = landauer.CopyFiles
+
+[DefaultInstall.Services]
+AddService = landauer, 0x00000002, landauer_Service
+
+[landauer.CopyFiles]
+landauer.sys
+
+[landauer_Service]
+DisplayName    = %ServiceName%
+ServiceType    = 1                           ; SERVICE_KERNEL_DRIVER
+StartType      = 3                           ; SERVICE_DEMAND_START
+ErrorControl   = 1                           ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\landauer.sys
+
+[SourceDisksNames]
+1 = %DiskName%
+
+[SourceDisksFiles]
+landauer.sys = 1
+
+[Strings]
+Manufacturer = "Landauer Project"
+ServiceName  = "Landauer Hardware Access Driver"
+DiskName     = "Landauer Driver Installation Disk"
