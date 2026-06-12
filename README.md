@@ -7,7 +7,7 @@
 
 RWEverything 的 CLI 版本。Windows 内核驱动 + 用户态命令行，让 AI agent 能直接操作 PCIe 硬件寄存器。摒弃 GUI，所有输出可 grep/parse，所有错误显式报告。
 
-中文 | [English](README_EN.md)
+中文 | [English](README_EN.md) | [العربية](README_ARB.md)
 
 ---
 
